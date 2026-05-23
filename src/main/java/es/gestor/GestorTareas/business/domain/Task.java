@@ -1,7 +1,6 @@
 package es.gestor.GestorTareas.business.domain;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -30,6 +29,8 @@ public class Task {
     private PriorityEnum priority;
 
     private LocalDate dueDate;
+    
+    private String createdBy;
 
     public void validateDueDate() {
         if (dueDate != null && LocalDate.now().isAfter(dueDate)) {
@@ -44,6 +45,7 @@ public class Task {
         this.status = update.getStatus();
         this.priority = update.getPriority();
         this.dueDate = update.getDueDate();
+        this.createdBy = update.getCreatedBy();
 
         validateDueDate();
 

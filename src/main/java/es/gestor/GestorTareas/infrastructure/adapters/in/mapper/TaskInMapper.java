@@ -18,7 +18,8 @@ public class TaskInMapper {
                 entity.getTitle(),
                 entity.getStatus(),
                 entity.getPriority(),
-                entity.getDueDate());
+                entity.getDueDate(),
+                entity.getOwner().getUsername());
     }
 
     public List<Task> toDomainList(List<TaskEntity> entities) {
@@ -29,12 +30,14 @@ public class TaskInMapper {
                         entity.getTitle(),
                         entity.getStatus(),
                         entity.getPriority(),
-                        entity.getDueDate()))
+                        entity.getDueDate(),
+                        entity.getOwner().getUsername()))
                 .toList();
     }
 
     public Task toDomainDto(TaskRequest request) {
-        Task dto = new Task(null, request.getTitle(), request.getStatus(), request.getPriority(), request.getDueDate());
+        Task dto = new Task(null, request.getTitle(), request.getStatus(), request.getPriority(), request.getDueDate(),
+                null);
 
         return dto;
     }

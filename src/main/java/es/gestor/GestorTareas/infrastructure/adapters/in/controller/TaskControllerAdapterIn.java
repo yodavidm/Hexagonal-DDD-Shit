@@ -84,7 +84,6 @@ public class TaskControllerAdapterIn {
         Task task = findTaskByIdUseCase.findById(id);
         TaskResponse response = taskOutMapper.fromDomainResponse(task);
         return ResponseEntity.status(HttpStatus.OK).body(response);
-
     }
 
 }

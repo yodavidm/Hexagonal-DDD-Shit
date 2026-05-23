@@ -25,4 +25,6 @@ public class TaskResponse {
 
     private LocalDate dueDate;
 
+    private String createdBy;
+
 }

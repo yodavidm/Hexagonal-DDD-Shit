@@ -21,14 +21,15 @@ public class TaskOutMapper {
 
     public TaskResponse fromDomainResponse(Task domain) {
         TaskResponse response = new TaskResponse(domain.getId(), domain.getTitle(), domain.getStatus(),
-                domain.getPriority(), domain.getDueDate());
+                domain.getPriority(), domain.getDueDate(), domain.getCreatedBy());
         return response;
     }
 
     public List<TaskResponse> fromDomainResponse(List<Task> domain) {
         List<TaskResponse> response = domain.stream()
                 .map(task -> new TaskResponse(task
-                        .getId(), task.getTitle(), task.getStatus(), task.getPriority(), task.getDueDate()))
+                        .getId(), task.getTitle(), task.getStatus(), task.getPriority(), task.getDueDate(),
+                        task.getCreatedBy()))
                 .toList();
         return response;
     }
